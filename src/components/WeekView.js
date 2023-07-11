@@ -28,7 +28,7 @@ const WeekView = () => {
         ))}
       </div>
       <div className="d-grid gap-2 col-6 mx-auto mt-5">
-        <button className="btn btn-primary" type="button">
+        <button className="btn btn-dark" type="button">
           <Link to="/">Back to Detail View</Link>
         </button>
       </div>

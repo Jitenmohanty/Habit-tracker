@@ -5,8 +5,10 @@ import {
   habitNone,
   habitUnDone,
 } from "../redux/features/habitSlice";
+import { useToasts } from "react-toast-notifications";
 
 const DayView = ({ day }) => {
+  const { addToast } = useToasts();
   // get today date
   const today = new Date();
   // get day from today date
@@ -21,7 +23,10 @@ const DayView = ({ day }) => {
   // function call after click done icon--------------
   const markToDone = () => {
     if (day.id > todayDay) {
-      alert("You cannot change your next days status");
+      addToast("You cannot change your next days status", {
+        appearance: "error",
+        autoDismiss: true,
+      });
       return;
     }
     // call habit done action from reducer
@@ -32,7 +37,10 @@ const DayView = ({ day }) => {
   // function call after click undone icon------------
   const markToUnDone = () => {
     if (day.id > todayDay) {
-      alert("You cannot change your next days status");
+      addToast("You cannot change your next days status", {
+        appearance: "error",
+        autoDismiss: true,
+      });
       return;
     }
     // call habit undone action from reducer
@@ -43,7 +51,10 @@ const DayView = ({ day }) => {
   // function call after click none icon--------------
   const markToNone = () => {
     if (day.id > todayDay) {
-      alert("You cannot change your next days status");
+      addToast("You cannot change your next days status", {
+        appearance: "error",
+        autoDismiss: true,
+      });
       return;
     }
     // call habit none action from reducer

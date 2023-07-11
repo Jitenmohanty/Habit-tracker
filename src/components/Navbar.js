@@ -1,15 +1,22 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { addHabit } from "../redux/features/habitSlice";
+import { useToasts } from "react-toast-notifications";
 
 const Navbar = () => {
   // call use dispatch hook a variable call dispatch
   const dispatch = useDispatch();
+  const { addToast } = useToasts();
 
   // function for add habit
   const handleSave = () => {
     const habitName = document.getElementById("habitName").value;
     dispatch(addHabit(habitName));
-    alert("Your habit added successfully");
+    // alert("Your habit added successfully");
+    addToast("Your habbit added successfully", {
+      appearance: "success",
+      autoDismiss: true,
+    });
     document.getElementById("habitName").value = "";
   };
 
@@ -23,7 +30,7 @@ const Navbar = () => {
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
           >
-            <i className="fa-solid fa-plus"></i> Add Habits
+            Add Habits
           </button>
         </div>
       </div>
