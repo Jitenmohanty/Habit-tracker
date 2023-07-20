@@ -64,6 +64,12 @@ body {
   color: #dddddd;
   margin-right: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+  .right-nav {
+   margin-left: 28%;
+  }
+}
 .addhabit-btn {
   cursor: pointer;
   color: white;
@@ -86,6 +92,9 @@ body {
 /* habits components style------------------------------ */
 .habits {
   width: 100%;
+}
+.habits:hover{
+  background-color: #4f2828;
 }
 
 /* habit under habits component */

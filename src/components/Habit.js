@@ -42,7 +42,7 @@ const Habit = ({ habit }) => {
     <div className="habit">
       <div className="habit-left">
         {/* <i className="fa-solid fa-hashtag"></i> */}
-        <i class="fa-solid fa-arrow-right"></i>
+        <i class="fa-solid fa-arrow-right" onClick={setId}></i>
         <div>
           <h4 style={{ textTransform: "capitalize" }}>{habit.name}</h4>
           <p className="day-complete">
