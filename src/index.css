@@ -93,7 +93,7 @@ body {
 .habits {
   width: 100%;
 }
-.habits:hover{
+.habit:hover{
   background-color: #4f2828;
 }
 
