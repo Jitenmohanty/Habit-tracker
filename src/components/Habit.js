@@ -46,7 +46,7 @@ const Habit = ({ habit }) => {
         <div>
           <h4 style={{ textTransform: "capitalize" }}>{habit.name}</h4>
           <p className="day-complete">
-            {countDone}/{todayDay + 1} days
+            {countDone}/{todayDay + 2} days
           </p>
         </div>
       </div>
