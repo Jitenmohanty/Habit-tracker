@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="app-container">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} exact to="/"/>
         <Route path="/week-view" element={<WeekView />} />
       </Routes>
     </div>
