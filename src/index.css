@@ -40,6 +40,7 @@ body {
 .navbar {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   height: 100px;
   padding: 0px 20px;
   justify-content: space-between;
@@ -66,8 +67,28 @@ body {
 }
 
 @media only screen and (max-width: 500px) {
+  h3,h2{
+      font-size: 6vw;
+  }
   .right-nav {
    margin-left: 28%;
+   
+  }
+  .log-btn{
+    font-size: 3vw;
+  }
+  .fa-trash {
+    height: 2rem;
+    width: 2rem;
+  }
+  .days-container {
+    width: 100%;
+    margin: 0;
+  }
+  .day-container{
+      width: 100%;
+      margin: 0;
+      padding: 0;
   }
 }
 .addhabit-btn {
@@ -165,9 +186,12 @@ body {
 
 /* style week view container --------------------------- */
 .days-container {
-  margin: 20px 0px;
+  /* margin: 20px 0px; */
+  margin: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  padding: 5px;
 }
 /* style day view component */
 .day-container {
@@ -177,6 +201,7 @@ body {
   border-radius: 20px;
   padding: 5px;
   color: rgb(255, 255, 255);
+  margin: 10px;
 }
 p {
   margin: 0%;

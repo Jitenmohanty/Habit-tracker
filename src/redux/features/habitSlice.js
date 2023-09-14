@@ -78,6 +78,10 @@ export const habitSlice = createSlice({
       return tempHabits;
     },
 
+    editHabit:(state,action) => {
+
+    },
+
     deleteHabit: (state, action) => {
       const tempHabits = state.filter((habit) => habit.id !== action.payload);
       return tempHabits;

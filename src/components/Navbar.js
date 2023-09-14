@@ -3,12 +3,13 @@ import React, { useState , useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addHabit } from "../redux/features/habitSlice";
 import { useToasts } from "react-toast-notifications";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   // call use dispatch hook a variable call dispatch
   const dispatch = useDispatch();
   const { addToast } = useToasts();
-
+  const navigate  = useNavigate();
    // change state acording time
    const [hour, setHour] = useState(0);
    useEffect(() => {
@@ -31,7 +32,7 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-      <h3>
+      <h3 >
           {/* acording to time its shows morning,afternoon,evening and night */}
         Good  {hour <= 12
             ? "Morning"
@@ -41,7 +42,7 @@ const Navbar = () => {
             ? "Evening"
             : "Night"}
         </h3>
-          <h2 style={{color:'#36b9ea'}}>Habit-Tracker</h2>
+          <h2 style={{color:'#36b9ea',cursor:'pointer'}} onClick={()=>navigate('/')}>Habit-Tracker</h2>
         <div className="right-nav">
           <button
             className="addhabit-btn"
