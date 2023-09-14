@@ -20,6 +20,7 @@ const Navbar = () => {
   // function for add habit
   const handleSave = () => {
     const habitName = document.getElementById("habitName").value;
+    console.log(habitName,"Rod")
     dispatch(addHabit(habitName));
     // alert("Your habit added successfully");
     addToast("Your habbit added successfully", {
@@ -88,7 +89,7 @@ const Navbar = () => {
             <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Cancel

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteHabit } from "../redux/features/habitSlice";
+import { deleteHabit, editHabit } from "../redux/features/habitSlice";
 import { useNavigate } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 
@@ -24,6 +24,7 @@ const Habit = ({ habit }) => {
 
   // function call after click delete button on habit list
   const handleDelete = () => {
+    console.log("delete");
     dispatch(deleteHabit(habit.id));
     addToast("Your habit deleted successfully", {
       appearance: "success",
@@ -31,8 +32,15 @@ const Habit = ({ habit }) => {
     });
   };
 
-  // this function call after click week view button
-  // this function used for set current habit id to localstorage and navigate to weekview page
+  const handleEdit = () => {
+    const habitName = document.getElementById("habitNames").value;
+    dispatch(editHabit({ id: habit.id, name: habitName }));
+    addToast("Your habit Updated successfully", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+    document.getElementById("habitName").value = "";
+  };
   const setId = () => {
     localStorage.setItem("id", habit.id);
     navigate("/week-view");
@@ -42,7 +50,7 @@ const Habit = ({ habit }) => {
     <div className="habit">
       <div className="habit-left">
         {/* <i className="fa-solid fa-hashtag"></i> */}
-        <i class="fa-solid fa-arrow-right" onClick={setId}></i>
+        <i className="fa-solid fa-arrow-right" onClick={setId}></i>
         <div>
           <h4 style={{ textTransform: "capitalize" }}>{habit.name}</h4>
           <p className="day-complete">
@@ -51,11 +59,76 @@ const Habit = ({ habit }) => {
         </div>
       </div>
       <div className="habit-right">
+        <div className="editName" style={{ marginRight: "3px" }}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <i className="fa-solid fa-edit"></i>
+          </button>
+        </div>
         <div className="log-btn" onClick={setId}>
           <i className="fa-solid fa-calendar-week"></i>
           Week View
         </div>
         <i className="fa-solid fa-trash" onClick={handleDelete}></i>
+      </div>
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">
+                Edit habit
+              </h5>
+              <div className="modal-body">
+                <div className="mb-3">
+                  <label htmlFor="exampleInputEmail1" className="form-label">
+                    NAME
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="habitNames"
+                    placeholder={habit.name}
+                    autoComplete="off"
+                    required
+                  />
+                </div>
+              </div>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">...</div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleEdit}
+              >
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

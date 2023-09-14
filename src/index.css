@@ -90,6 +90,9 @@ body {
       margin: 0;
       padding: 0;
   }
+  .habit{
+    padding: 0px 3px;
+  }
 }
 .addhabit-btn {
   cursor: pointer;
@@ -165,7 +168,7 @@ body {
   background-color: #424242;
   padding: 10px;
   border-radius: 7px;
-  margin-right: 10px;
+  margin-right: 2px;
   color: white;
   border: none;
 }
@@ -173,7 +176,7 @@ body {
   color: white;
 }
 .log-btn i {
-  margin-right: 5px;
+  margin-right: 2px;
 }
 .fa-trash {
   cursor: pointer;
@@ -181,6 +184,11 @@ body {
   border-radius: 7px;
   color: red;
   background-color: rgb(17, 16, 16);
+}
+.fa-edit{
+  height: 0.5vh;
+  width: 1vh;
+  padding: 0;
 }
 /* ------------------------------------------------------*/
 
