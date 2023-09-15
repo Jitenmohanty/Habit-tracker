@@ -6,8 +6,6 @@ import { useToasts } from "react-toast-notifications";
 
 const Habit = ({ habit }) => {
   const { addToast } = useToasts();
-  const today = new Date();
-  const todayDay = today.getDay();
   let countDone = 0;
   //loop for getting habit done count
   for (let i = 0; i < habit.weekLog.length; i++) {
@@ -54,7 +52,7 @@ const Habit = ({ habit }) => {
         <div>
           <h4 style={{ textTransform: "capitalize" }}>{habit.name}</h4>
           <p className="day-complete">
-            {countDone}/{todayDay + 3} days
+            {countDone}/7 days
           </p>
         </div>
       </div>
@@ -122,6 +120,7 @@ const Habit = ({ habit }) => {
               <button
                 type="button"
                 className="btn btn-primary"
+                data-bs-dismiss="modal"
                 onClick={handleEdit}
               >
                 Save changes
